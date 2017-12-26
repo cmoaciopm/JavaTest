@@ -12,3 +12,8 @@ gradle.properties
 .idea/modules.xml
 
 *.iml
+
+.settings/
+bin/
+.classpath
+.project

@@ -1,0 +1,202 @@
+@startuml
+
+
+abstract class AbstractList {
+    #transient int modCount
+
+    +boolean add(E e)
+    +int indexOf(Object o)
+    +int lastIndexOf(Object o)
+    +void clear()
+    +boolean addAll(int index, Collection<? extends E> c)
+    +Iterator<E> iterator()
+    +ListIterator<E> listIterator()
+    +ListIterator<E> listIterator(final int index)
+    +boolean equals(Object o)
+    +int hashCode()
+    
+    +E set(int index, E element)
+    +void add(int index, E element)
+    +E remove(int index)
+
+    {abstract} +E get(int index)
+    
+    #void removeRange(int fromIndex, int toIndex)
+
+}
+
+class ArrayList {
+    transient Object[] elementData
+
+    +void trimToSize()
+    +void ensureCapacity(int minCapacity)
+    +Object[] toArray()
+    +<T> T[] toArray(T[] a)
+    +boolean removeAll(Collection<?> c)
+    +boolean retainAll(Collection<?> c)
+    +ListIterator<E> listIterator()
+    +Iterator<E> iterator()
+    +List<E> subList(int fromIndex, int toIndex)
+    +void sort(Comparator<? super E> c)
+
+    -void grow(int minCapacity)
+    -void writeObject(java.io.ObjectOutputStream s)
+    -void readObject(a.io.ObjectInputStream s)
+}
+
+class Vector {
+    #Object[] elementData
+    #int elementCount
+    #int capacityIncrement
+
+    +synchronized void copyInto(Object[] anArray)
+    +synchronized void trimToSize()
+    +synchronized void ensureCapacity(int minCapacity)
+    +synchronized void setSize(int newSize)
+    +synchronized int capacity()
+    +synchronized int size()
+    +synchronized E firstElement()
+    +synchronized E lastElement()
+    +synchronized void setElementAt(E obj, int index)
+    +synchronized void removeElementAt(int index)
+    +synchronized void insertElementAt(E obj, int index)
+    +synchronized void addElement(E obj)
+    +synchronized boolean removeElement(Object obj)
+    +synchronized void removeAllElements()
+    +synchronized Object[] toArray()
+    +synchronized <T> T[] toArray(T[] a)
+    +synchronized boolean removeAll(Collection<?> c)
+    +synchronized boolean retainAll(Collection<?> c)
+
+    -void grow(int minCapacity)
+}
+
+class Stack {
+    +E push(E item)
+    +synchronized E pop()
+    +synchronized E peek()
+    +boolean empty()
+    +synchronized int search(Object o)
+}
+
+abstract class AbstractSequentialList {
+    +E get(int index)
+    +E set(int index, E element)
+    +void add(int index, E element)
+    +E remove(int index)
+    +boolean addAll(int index, Collection<? extends E> c)
+    +Iterator<E> iterator()
+    {abstract} +abstract ListIterator<E> listIterator(int index)
+}
+
+class LinkedList {
+    ~transient int size
+    ~transient Node<E> first
+    ~transient Node<E> last
+}
+
+
+interface Collection {
+    int size()
+    boolean isEmpty()
+    boolean contains(Object o)
+    Iterator<E> iterator()
+    Object[] toArray()
+    <T> T[] toArray(T[] a)
+    boolean add(E e)
+    boolean remove(Object o)
+    boolean containsAll(Collection<?> c)
+    boolean addAll(Collection<? extends E> c)
+    boolean removeAll(Collection<?> c)
+    boolean retainAll(Collection<?> c)
+    void clear()
+}
+
+class HashSet {
+    -transient HashMap<E,Object> map
+    -static final Object PRESENT
+}
+
+class LinkedHashSet {
+
+}
+
+interface Map {
+    int size()
+    boolean isEmpty()
+    boolean containsKey(Object key)
+    boolean containsValue(Object value)
+    V get(Object key)
+    V put(K key, V value)
+    V remove(Object key)
+    void putAll(Map<? extends K, ? extends V> m)
+    void clear()
+    Set<K> keySet()
+    Collection<V> values()
+    Set<Map.Entry<K, V>> entrySet()
+}
+
+abstract class Dictionary
+
+class HashTable {
+    -transient Entry<K,V>[] table
+    -transient int count
+    -int threshold
+    -float loadFactor
+    -transient int modCount
+    -transient boolean useAltHashing
+    -static final sun.misc.Unsafe UNSAFE
+    -static final long HASHSEED_OFFSET
+    -transient final int hashSeed
+
+    +synchronized int size()
+    +synchronized boolean isEmpty()
+    +synchronized Enumeration<K> keys()
+    +synchronized Enumeration<V> elements()
+    +synchronized boolean contains(Object value)
+    +boolean containsValue(Object value)
+    +synchronized boolean containsKey(Object key)
+    +synchronized V get(Object key)
+    +synchronized V put(K key, V value)
+    +synchronized V remove(Object key)
+    +synchronized void putAll(Map<? extends K, ? extends V> t)
+    +synchronized void clear()
+    +Set<K> keySet()
+    +Set<Map.Entry<K,V>> entrySet()
+    +Collection<V> values()
+
+    #void rehash()
+
+    -transient volatile Set<K> keySet
+    -transient volatile Set<Map.Entry<K,V>> entrySet
+    -transient volatile Collection<V> values
+}
+
+
+Collection <|-- AbstractCollection
+  AbstractCollection <|-- AbstractList
+    AbstractList <|-- ArrayList
+    AbstractList <|-- Vector
+      Vector <|-- Stack
+    AbstractList <|-- AbstractSequentialList
+      AbstractSequentialList <|-- LinkedList
+
+  AbstractCollection <|-- AbstractSet
+    AbstractSet <|-- HashSet
+      HashSet <|-- LinkedHashSet
+    AbstractSet <|-- TreeSet
+
+  AbstractCollection <|-- AbstractQueue
+
+  AbstractCollection <|-- ArrayDeque
+
+  AbstractCollection <|-- ConcurrentLinkedDeque
+
+
+Map <|-- AbstractMap
+  AbstractMap <|-- HashMap
+    HashMap <|-- LinkedHashMap
+
+Dictionary <|-- HashTable
+
+@enduml

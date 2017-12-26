@@ -2,11 +2,13 @@
 build/
 
 local.properties
+gradle.properties
 
 .idea/libraries/
 .idea/modules/
 .idea/misc.xml
 .idea/workspace.xml
 .idea/vcs.xml
+.idea/modules.xml
 
 *.iml

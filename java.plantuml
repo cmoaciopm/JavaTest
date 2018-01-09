@@ -196,6 +196,8 @@ Collection <|-- AbstractCollection
 Map <|-- AbstractMap
   AbstractMap <|-- HashMap
     HashMap <|-- LinkedHashMap
+  AbstractMap <|-- WeakHashMap
+  AbstractMap <|-- TreeMap
 
 Dictionary <|-- HashTable
 

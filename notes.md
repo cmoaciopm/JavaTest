@@ -133,6 +133,8 @@ public HashSet() {
 RBTree
 
 [Online visualization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
+[从2-3-4树谈到Red-Black Tree（红黑树）](http://blog.csdn.net/v_july_v/article/details/6531399)
+[Left-Leaning Red-Black Trees](http://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf)
 
 
 

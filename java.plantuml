@@ -198,6 +198,8 @@ Map <|-- AbstractMap
     HashMap <|-- LinkedHashMap
   AbstractMap <|-- WeakHashMap
   AbstractMap <|-- TreeMap
+  AbstractMap <|-- EnumMap
+  AbstractMap <|-- IdentityHashMap
 
 Dictionary <|-- HashTable
 

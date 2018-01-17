@@ -200,6 +200,7 @@ Map <|-- AbstractMap
   AbstractMap <|-- TreeMap
   AbstractMap <|-- EnumMap
   AbstractMap <|-- IdentityHashMap
+  AbstractMap <|-- ConcurrentHashMap
 
 Dictionary <|-- HashTable
 

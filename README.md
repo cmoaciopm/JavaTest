@@ -8,4 +8,4 @@ Use **gradle test --debug-jvm** to enable debugging for the test process
 
 Use **gradle -PmainClass=App execute** to run class App
 
-Use **gradle -PmainClass=net.cmoaciopm.java.other.ProducerConsumer** to run class net.cmoaciopm.java.other.ProducerConsumer
+Use **gradle -PmainClass=net.cmoaciopm.java.other.ProducerConsumer execute** to run class net.cmoaciopm.java.other.ProducerConsumer

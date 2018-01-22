@@ -31,3 +31,7 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'App'
 
+task execute(type:JavaExec) {
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+}

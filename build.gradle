@@ -32,6 +32,6 @@ dependencies {
 mainClassName = 'App'
 
 task execute(type:JavaExec) {
-    main = mainClass
+    main = mainClassName
     classpath = sourceSets.main.runtimeClasspath
 }

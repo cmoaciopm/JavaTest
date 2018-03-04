@@ -140,3 +140,21 @@ RBTree
 
 What is Deep copy?
 What is shallow copy?
+
+
+## Disadvantage of synchronized collections
+
+The synchronized collection classes include Vector and Hashtable, part of the orig- inal JDK, as well as their cousins added in JDK 1.2, the synchronized wrapper classes created by the Collections.synchronizedXxx factory methods.
+
+1. Thread-safety is implemented by locking the whole collection, only one thread at a time can access the collection state
+2. Compound actions, such as put-if-absent, needs additional client-side locking
+3. ConcurrentModificationException is implemented using a not synchronized modification count. Refer <Java Concurrency in Practice> 5.1.2
+
+
+## ConcurrentHashMap
+
+TODO
+
+## CopyOnWriteArrayList
+
+TODO

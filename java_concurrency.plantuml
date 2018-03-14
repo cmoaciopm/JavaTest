@@ -1,0 +1,65 @@
+@startuml
+interface Executor {
+    void execute(Runnable command)
+}
+
+interface ExecutorService {
+    boolean awaitTermination(long timeout, TimeUnit unit)
+    boolean isShutdown()
+    boolean isTerminated()
+    void shutdown()
+    List<Runnable> shutdownNow()
+
+    <T> Future<T> submit(Callable<T> task)
+    Future<?> submit(Runnable task)
+    <T> Future<T> submit(Runnable task, T result)
+    <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks)
+    <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit)
+    <T> T invokeAny(Collection<? extends Callable<T>> tasks)
+    <T> T invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit)
+}
+
+interface ScheduledExecutorService {
+    ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit)
+    <V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit)
+    ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)
+    ScheduledFuture<?> scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit)
+}
+
+interface Runnable {
+    void run()
+}
+
+interface Callable<V> {
+    V call() throws Exception
+}
+
+interface Future<V> {
+    boolean cancel(boolean mayInterruptIfRunning)
+    boolean isCancelled()
+    boolean isDone()
+    V get() throws InterruptedException, ExecutionException, CancellationException
+    V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, CancellationException, TimeoutException
+}
+
+interface RunnableFuture<V>
+
+class FutureTask<V> {
+    +boolean isCancelled()
+    +boolean isDone()
+    +boolean cancel(boolean mayInterruptIfRunning)
+    +V get() throws InterruptedException, ExecutionException
+    +V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException
+    #void done()
+    #void set(V v)
+    #void setException(Throwable t)
+    #void run()
+    #boolean runAndReset()
+}
+
+Executor <|-- ExecutorService
+ExecutorService <|-- ScheduledExecutorService
+Future <|-- RunnableFuture
+Runnable <|-- RunnableFuture
+RunnableFuture <|-- FutureTask
+@enduml

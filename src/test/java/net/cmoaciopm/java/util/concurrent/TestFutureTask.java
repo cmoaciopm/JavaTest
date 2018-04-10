@@ -38,4 +38,31 @@ public class TestFutureTask {
 
         }
     }
+
+    @Test
+    public void test2() {
+        String result = "Hello";
+        FutureTask<String> task = new FutureTask(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+    
+                }
+            }
+        }, result);
+    
+        try {
+            task.run();
+            String actualResult = task.get();
+            assertThat(result, is("Hello"));
+        } catch(CancellationException e) {
+
+        } catch(InterruptedException e) {
+
+        } catch(ExecutionException e) {
+
+        }
+    }
 }

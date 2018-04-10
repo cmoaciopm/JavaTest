@@ -57,9 +57,21 @@ class FutureTask<V> {
     #boolean runAndReset()
 }
 
+abstract class AbstractExecutorService {
+
+}
+
+class ThreadPoolExecutor {
+
+}
+
 Executor <|-- ExecutorService
 ExecutorService <|-- ScheduledExecutorService
+ExecutorService <|-- AbstractExecutorService
+AbstractExecutorService <|-- ThreadPoolExecutor
 Future <|-- RunnableFuture
 Runnable <|-- RunnableFuture
 RunnableFuture <|-- FutureTask
+
+
 @enduml

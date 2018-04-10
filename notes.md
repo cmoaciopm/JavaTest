@@ -163,21 +163,62 @@ TODO
 # java.util.concurrent
 ## Executors
 
+
 ### newFixedThreadPool
 
 TODO
+```java
+new ThreadPoolExecutor(nThreads, nThreads,
+                       0L, TimeUnit.MILLISECONDS,
+                       new LinkedBlockingQueue<Runnable>());
+```
 
 ### newCachedThreadPool
 
 TODO
+1. Unbounded thread pool
+2. Automatic thread reclaimation
+
+```java
+new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                       60L, TimeUnit.SECONDS,
+                       new SynchronousQueue<Runnable>());
+```
 
 ### newSingleThreadExecutor
 
 TODO
+```java
+new ThreadPoolExecutor(1, 1,
+                       0L, TimeUnit.MILLISECONDS,
+                       new LinkedBlockingQueue<Runnable>());
+```
 
 ### newScheduledThreadPool
 
 TODO
+
+## FutureTask
+
+TODO
+
+## ThreadPoolExecutor
+
+TODO
+
+* Core pool size
+* Maxium pool size
+* Keep-alive time
+* BlockingQueue
+  * SynchronousQueue: Direct handoffs
+  * LinkedBlockingQueue: Unbounded queues
+  * ArrayBlockingQueue: Bounded queues
+* ThreadFactory
+* RejectedExecutionHandler
+  * AbortPolicy
+  * CallerRunsPolicy
+  * DiscardPolicy
+  * DiscardOldestPolicy
 
 # java.lang
 ## Thread
